@@ -12,9 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('locale/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'ru'])) {
+        Session::put('locale', $locale);
+    }
+    return back();
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('tests', 'TestController@index')->name('tests.index');
+Route::get('tests/{test}/edit', 'TestController@edit')->name('tests.edit');
+Route::patch('tests/{test}', 'TestController@update')->name('tests.update');
