@@ -16,11 +16,11 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div id="app" class="wrapper">
-
+    @include('js.init')
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav nav_button">
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
@@ -69,6 +69,7 @@
     </nav>
 
     <!-- Main Sidebar Container -->
+    @if (Auth::check())
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
         <!-- Sidebar -->
@@ -104,6 +105,19 @@
         </div>
         <!-- /.sidebar -->
     </aside>
+    @else
+    <script>
+    $(document).ready(function(){
+        $('.content-wrapper').css('margin-left',0);
+        $('.main-footer').css('margin-left',0);
+        $('.main-header').css('margin-left',0);
+        $('.nav_button').css('display', 'none');
+    });
+    </script>
+    @endif
+    
+
+    
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -129,5 +143,7 @@
     </footer>
 </div>
 <!-- ./wrapper -->
-@include('js.init')
+
+
+
 </body>
