@@ -13,10 +13,10 @@
     <!-- Scripts -->
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @include('js.init')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div id="app" class="wrapper">
-    @include('js.init')
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
@@ -103,20 +103,11 @@
             </nav>
             <!-- /.sidebar-menu -->
         </div>
-        <!-- /.sidebar -->
     </aside>
     @else
-    <script>
-    $(document).ready(function(){
-        $('.content-wrapper').css('margin-left',0);
-        $('.main-footer').css('margin-left',0);
-        $('.main-header').css('margin-left',0);
-        $('.nav_button').css('display', 'none'); 
-    });
-    </script>
+        @include('js.hide_sidebar')
     @endif
-    
-
+    <!-- /.sidebar -->
     
 
     <!-- Content Wrapper. Contains page content -->
