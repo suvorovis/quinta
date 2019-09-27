@@ -10,6 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- Scripts -->
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,7 +19,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div id="app" class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand">
         <!-- Left navbar links -->
         <ul class="navbar-nav nav_button">
             <li class="nav-item">
@@ -30,17 +31,17 @@
         <ul class="navbar-nav ml-auto">
             @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('passwords.Login') }}</a>
+                    <a class="link login" href="{{ route('login') }}">{{ __('passwords.Login') }}</a>
                 </li>
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('passwords.Register') }}</a>
+                        <a class="link register" href="{{ route('register') }}">{{ __('passwords.Register') }}</a>
                     </li>
                 @endif
             @else
             <!-- Authentication Links -->
             <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarDropdown" class="username dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
 
@@ -57,7 +58,7 @@
             </li>
             @endguest
             <li class="nav-item dropdown">
-                <a id="navbarLocaleDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarLocaleDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ strtoupper(app()->getLocale()) }} <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-sm-right" aria-labelledby="navbarLocaleDropdown">
