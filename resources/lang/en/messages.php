@@ -15,4 +15,6 @@ return [
     'Close' => 'Close',
     'Save' => 'Save',
     'Edit element' => 'Edit element',
+    'id' => '#',
+    'Students' => 'Students',
 ];

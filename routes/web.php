@@ -24,7 +24,4 @@ Route::get('locale/{locale}', function ($locale) {
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('tests', 'TestController@index')->name('tests.index');
-Route::get('tests/{test}/edit', 'TestController@edit')->name('tests.edit');
-Route::patch('tests/{test}', 'TestController@update')->name('tests.update');
+Route::resource('students', 'StudentController');

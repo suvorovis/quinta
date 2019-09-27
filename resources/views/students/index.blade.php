@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ __('messages.Tests') }}
+    {{ __('messages.Students') }}
 @endsection
 
 @section('content')
@@ -10,19 +10,24 @@
             <table id="data-table" class="table table-striped">
                 <thead>
                 <tr>
-                    <th>{{ __('tests.id') }}</th>
-                    <th>{{ __('tests.name') }}</th>
-                    <th>{{ __('tests.created_at') }}</th>
+                    <th>{{ __('messages.id') }}</th>
+                    <th>{{ __('students.first_name') }}</th>
+                    <th>{{ __('students.last_name') }}</th>
+                    <th>{{ __('students.patronymic') }}</th>
+                    <th>{{ __('students.birthday') }}</th>
+                    <th>{{ __('messages.Actions') }}</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($rows as $row)
                     <tr>
                         <td>{{ $row['id'] }}</td>
-                        <td>{{ $row['name'] }}</td>
-                        <td>{{ $row['created_at'] }}</td>
+                        <td>{{ $row['first_name'] }}</td>
+                        <td>{{ $row['last_name'] }}</td>
+                        <td>{{ $row['patronymic'] }}</td>
+                        <td>{{ $row['birthday'] }}</td>
                         <td>
-                            <button class="btn btn-block btn-primary" type="button" onclick="edit({{ $row['id'] }}, '{{ route('tests.edit', config('params.id')) }}');">
+                            <button class="btn btn-block btn-primary" type="button" onclick="edit({{ $row['id'] }}, '{{ route('students.edit', config('params.id')) }}');">
                                 {{ __('messages.Edit') }}
                             </button>
                         </td>
@@ -33,7 +38,7 @@
         </div>
     </div>
 
-    @include('tests.modal_edit')
+    @include('students.modal_edit')
 
     <script type="application/javascript">
         $(function () {

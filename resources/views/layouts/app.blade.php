@@ -93,12 +93,14 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
+                    @if(auth()->user()->hasAnyRole(['admin', 'institute', 'employer']))
                     <li class="nav-item">
-                        <a href="{{ route('tests.index') }}" class="nav-link{{ Request::segment(1) === 'tests' ? ' active' : '' }}">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>{{ __('messages.Tests') }}</p>
+                        <a href="{{ route('students.index') }}" class="nav-link{{ Request::segment(1) === 'students' ? ' active' : '' }}">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>{{ __('messages.Students') }}</p>
                         </a>
                     </li>
+                    @endif
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -108,7 +110,7 @@
         @include('js.hide_sidebar')
     @endif
     <!-- /.sidebar -->
-    
+
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
