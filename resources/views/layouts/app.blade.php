@@ -13,14 +13,14 @@
     <!-- Scripts -->
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @include('js.init')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div id="app" class="wrapper">
-
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav nav_button">
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
@@ -69,6 +69,7 @@
     </nav>
 
     <!-- Main Sidebar Container -->
+    @if (Auth::check())
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
         <!-- Sidebar -->
@@ -102,8 +103,12 @@
             </nav>
             <!-- /.sidebar-menu -->
         </div>
-        <!-- /.sidebar -->
     </aside>
+    @else
+        @include('js.hide_sidebar')
+    @endif
+    <!-- /.sidebar -->
+    
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -129,5 +134,7 @@
     </footer>
 </div>
 <!-- ./wrapper -->
-@include('js.init')
+
+
+
 </body>
