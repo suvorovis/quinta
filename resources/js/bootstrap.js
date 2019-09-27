@@ -11,6 +11,10 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('admin-lte');
+    require('datatables');
+    require('select2');
+    require('select2/dist/js/i18n/ru');
 } catch (e) {}
 
 /**
