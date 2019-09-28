@@ -58,6 +58,15 @@ body {
     color: white;
     border: none;
     text-align: center;
+    padding: 10px;
+    .footer_content {
+        display: flex;
+        justify-content: flex-end;
+        .text {
+            text-align: right;
+            padding-right: 10px;
+        }
+    }
 }
 
 .content-wrapper {

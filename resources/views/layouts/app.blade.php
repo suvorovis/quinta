@@ -116,7 +116,10 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2019-{{ (new DateTime())->format('Y') }} Quinta, LLC.</strong> All rights reserved.
+        <div class="footer_content">
+            <div class="text">Copyright &copy; 2019-{{ (new DateTime())->format('Y') }} Quinta, LLC.<br> All rights reserved.</div>
+            <a class="logo" href="/"><img src="{{ asset('images/logo.png') }}" alt=""></a><br>
+        </div>
     </footer>
 </div>
 <!-- ./wrapper -->

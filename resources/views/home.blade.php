@@ -39,8 +39,8 @@
             <img src="{{ asset('images/business.png') }}" alt="">
             <p class="left_text">Эффективное управление бизнесом</p>
             <div class="dot"></div>
-            <p class="right_text">Lorem ipsum dolor sit.</p>
-            <img src="{{ asset('images/business.png') }}" alt="">
+            <p class="right_text">Множество вакансий</p>
+            <img src="{{ asset('images/docs.png') }}" alt="" width="115">
         </div>
     </section>
 
@@ -48,7 +48,7 @@
         <h2 class="header">Наиболее
         востребованные профессии</h2>
         <div class="diagramm"> <div class="container-fluid"><div id="chart_div" style="padding-bottom: 20px; margin-left: 100px;"></div></div> </div>
-        <div class="all_stat"><a href="/">Весь список</a></div>
+        <div class="all_stat"><a href="{{route('dashboard.index')}}">Весь список</a></div>
     </section>
 </div>
 @endsection
