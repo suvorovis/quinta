@@ -20,5 +20,7 @@ return [
     'Are you sure?' => 'Are you sure?',
     'Delete' => 'Delete',
     'Delete element' => 'Delete element',
+    'Add' => 'Add',
+    'Add element' => 'Add element',
 
 ];

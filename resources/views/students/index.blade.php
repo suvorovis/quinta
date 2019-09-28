@@ -6,7 +6,13 @@
 
 @section('content')
     <div class="card card-primary card-outline">
+        <div class="card-header">
+            <button class="btn btn-block btn-success col-md-2" type="button" onclick="destroy({{ 123 }}, '{{ route('students.create', config('params.id')) }}');">
+                {{ __('messages.Add') }}
+            </button>
+        </div>
         <div class="card-body">
+
             <table id="data-table" class="table table-striped">
                 <thead>
                 <tr>
@@ -26,7 +32,7 @@
                         <td>{{ $row['last_name'] }}</td>
                         <td>{{ $row['patronymic'] }}</td>
                         <td>{{ $row['birthday'] }}</td>
-                        <td>
+                        <td class="row">
                             <button class="btn btn-block btn-primary" type="button" onclick="edit({{ $row['id'] }}, '{{ route('students.edit', config('params.id')) }}');">
                                 {{ __('messages.Edit') }}
                             </button>
