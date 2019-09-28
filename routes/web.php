@@ -25,3 +25,5 @@ Route::get('locale/{locale}', function ($locale) {
 Auth::routes();
 
 Route::resource('students', 'StudentController');
+
+Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
