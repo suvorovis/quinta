@@ -47,6 +47,11 @@
         display: flex;
         justify-content: center;
         a {
+            z-index: 2;
+            color: white;
+            &:hover {
+                text-decoration: none;
+            }
             padding: 15px 20px;
             background-color: $dark;
             border-radius: 20px;
