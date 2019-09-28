@@ -25,7 +25,8 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
         </ul>
-        <a class="navbar-brand logo" href="/"><img src="{{ asset('images/logo.png') }}" alt=""> <span>ProfStat</span></a>
+        <a class="navbar-brand logo" href="/"><img src="{{ asset('images/logo.png') }}" alt=""> <span>ProfStat</span></a></a>
+        <a class="link login" href="{{ route('reports.employed') }}">{{ __('messages.Reports') }}</a>
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
