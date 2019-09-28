@@ -33,7 +33,7 @@ class ReportController extends Controller
         WHERE (e.from BETWEEN '{$params['from']}' AND '{$params['to']}'
               OR e.to BETWEEN '{$params['from']}' AND '{$params['to']}')
              AND (e.student_id, p.direction_id) IN (SELECT student_id, direction_id FROM ({$students}) AS st)
-        GROUP BY p.direction_id, e.profession_id";
+        GROUP BY p.direction_id, e.profession_id, p.name";
 
         $query = "
         SELECT direction, profession, COUNT(DISTINCT s.student_id) AS educated, SUM(employed) AS employed, ROUND(SUM(employed) / IF(COUNT(DISTINCT s.student_id) = 0, 1, COUNT(DISTINCT s.student_id)) * 100, 0) AS rate
