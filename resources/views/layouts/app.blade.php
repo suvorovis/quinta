@@ -25,7 +25,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
         </ul>
-        <a class="navbar-brand logo" href="/public/"><img src="{{ asset('images/logo.png') }}" alt=""></a>
+        <a class="navbar-brand logo" href="/"><img src="{{ asset('images/logo.png') }}" alt=""></a>
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
