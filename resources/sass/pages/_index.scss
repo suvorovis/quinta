@@ -1,0 +1,110 @@
+.container-fluid {
+    width: 1000px;
+    margin: 0;
+    padding: 0;
+}
+
+#banner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(../images/banner.png);
+    background-position: center;
+    background-size: hover;
+    .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .text {
+            color: white;
+            margin-top: 60px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 26px;
+        }
+    }
+}
+
+#stats {
+    color: white;
+    margin: 0 auto;
+    padding-top: 110px;
+    .header {
+        text-align: center;
+        font-family: 'Roboto Bold', sans-serif;
+        font-size: 31px;
+    }
+    .diagramm {
+        background-color: $dark;
+        margin-top: 50px;
+        .container-fluid {
+            padding-top: 20px;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+    .all_stat {
+        display: flex;
+        justify-content: center;
+        a {
+            padding: 15px 20px;
+            background-color: $dark;
+            border-radius: 20px;
+            margin-top: -2%;
+        }
+    }
+}
+
+#advantages {
+    color: white;
+    margin: 0 auto;
+    margin-top: 170px;
+    .head_row {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        width: 70%;
+    }
+    .wrapper {
+        width: 50%;
+        padding: 0 40px;
+        .header {
+            font-family: 'Roboto Bold', sans-serif;
+            font-weight: bold;
+            font-size: 25   px;
+        }
+    }
+    .employee .header {
+        text-align: right;
+    }
+    .job .header {
+        text-align: left;
+    }
+    .adv_row {
+        height: 170px;
+        margin: 0 auto;
+        margin-top: 65px;
+        border-radius: 80px;
+        padding: 20px 40px;
+        background-color:$dark;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+            margin-bottom: 0;
+            width: 30%;
+            padding: 0 40px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+        }
+        .left_text {
+            text-align: right;
+        }
+        .dot {
+            background-color: $blue;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+    }
+}
