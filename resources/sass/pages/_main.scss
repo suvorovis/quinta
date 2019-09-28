@@ -12,7 +12,7 @@ body {
     }
     padding-right: 160px;
     height: 120px;
-    background-color: $accent;
+    background-color: $dark;
     .link, #navbarLocaleDropdown, .username {
         margin: 7px;
         color: white;
@@ -25,13 +25,18 @@ body {
         }
     }
     .login {
-        background-color: $dark;
+        background-color: $accent;
     }
     .register, .username {
         background-color: $blue; 
     }
     .logo {
         margin-left: 15%;
+        span {
+            padding-left: 10px;
+            color: $blue;
+            font-size: 21px;
+        }
     }
 }
 
@@ -53,6 +58,15 @@ body {
     color: white;
     border: none;
     text-align: center;
+    padding: 10px;
+    .footer_content {
+        display: flex;
+        justify-content: flex-end;
+        .text {
+            text-align: right;
+            padding-right: 10px;
+        }
+    }
 }
 
 .content-wrapper {
