@@ -8,13 +8,14 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="modal-add-form" method="get">
+                <form id="modal-add-form" method="post">
+                    @csrf
                     @yield('modal-add-content')
                 </form>
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" id="modal-add-close-button" data-dismiss="modal">{{ __('messages.Close') }}</button>
-                <button type="button" class="btn btn-success" id="modal-add-save-button">{{ __('messages.Add') }}</button>
+                <button type="button" class="btn btn-success" id="modal-add-save-button" onclick="$('#modal-add-form')[0].submit();">{{ __('messages.Add') }}</button>
             </div>
         </div>
     </div>

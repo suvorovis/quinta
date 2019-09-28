@@ -7,7 +7,7 @@
 @section('content')
     <div class="card card-primary card-outline">
         <div class="card-header">
-            <button class="btn btn-block btn-success col-md-2" type="button" onclick="destroy({{ 123 }}, '{{ route('students.create', config('params.id')) }}');">
+            <button class="btn btn-block btn-success col-md-2" type="button" onclick="create('{{ route('students.store') }}');">
                 {{ __('messages.Add') }}
             </button>
         </div>
@@ -47,6 +47,7 @@
         </div>
     </div>
 
+    @include('students.modal_add')
     @include('students.modal_edit')
     @include('modals.destroy')
 
