@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SpecialitySeeder::class);
         $this->call(StudentSeeder::class);
         $this->call(EmploymentSeeder::class);
+        $this->call(EducationSeeder::class);
 
     }
 }

@@ -7,39 +7,48 @@ use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
-    public function generate(Request $request)
+    public function employedStudents(Request $request)
     {
         $params = $this->validate($request, [
             'from' => 'date_format:Y-m-d',
             'to' => 'date_format:Y-m-d',
         ]);
 
+        $reportParams = $params;
+
         $params['from'] = $params['from'] ?? '0000-00-00';
         $params['to'] = $params['to'] ?? '9999-12-31';
 
-        $students = DB::table('education')->distinct()
-            ->join('specialities', 'education.speciality_id', '=', 'specialities.id')
-            ->join('professions', 'employments.profession_id', '=', 'professions.id')
-            ->join('directions', 'professions.direction_id', '=', 'directions.id')
-            ->select('student_id', 'direction_id')
-            ->whereBetween('end_date', [$params['from'], $params['to']])->toSql();
+        $students = "
+        SELECT e.student_id, s.direction_id, d.name as direction
+        FROM education e 
+            JOIN specialities s ON e.speciality_id = s.id
+            JOIN directions d ON s.direction_id = d.id
+        WHERE e.end_date BETWEEN '{$params['from']}' AND '{$params['to']}'";
 
-        $employments = DB::table('employments')
+        $employments = "
+        SELECT p.direction_id, e.profession_id, p.name AS profession, COUNT(DISTINCT e.student_id) AS employed
+        FROM employments e
+            JOIN professions p ON e.profession_id = p.id
+        WHERE (e.from BETWEEN '{$params['from']}' AND '{$params['to']}'
+              OR e.to BETWEEN '{$params['from']}' AND '{$params['to']}')
+             AND (e.student_id, p.direction_id) IN (SELECT student_id, direction_id FROM ({$students}) AS st)
+        GROUP BY p.direction_id, e.profession_id";
 
-            ->leftJoinSub('')
-            ->selectRaw('directions.name AS direction, professions.name AS profession, count(DISTINCT student_id) AS employed')
-            ->whereRaw("(`student_id`, `direction_id`) IN ({$students})")
-            ->where(function ($query) use ($params) {
-                $query->whereBetween('from', [$params['from'], $params['to']])
-                    ->orWhereBetween('to', [$params['from'], $params['to']]);
-            })
-            ->groupBy('direction_id', 'profession_id')->toSql();
+        $query = "
+        SELECT direction, profession, COUNT(DISTINCT s.student_id) AS educated, SUM(employed) AS employed, ROUND(SUM(employed) / IF(COUNT(DISTINCT s.student_id) = 0, 1, COUNT(DISTINCT s.student_id)) * 100, 0) AS rate
+        FROM ({$students}) AS s LEFT JOIN ({$employments}) AS e USING (direction_id)
+        GROUP BY direction, profession";
 
+        $rows = DB::select( DB::raw($query) );
 
-        dd($employments);
+        $rows = array_map(function ($row) {
+            return (array)$row;
+        }, $rows);
 
-            /*
-             * SELECT
-             */
+        return view('reports.employed_students', [
+            'rows' => $rows,
+            'params' => $reportParams,
+        ]);
     }
 }
