@@ -10,12 +10,6 @@
             </div>
         </div>
     </section>
-    <section id="stats">
-        <h2 class="header">Наиболее
-        востребованные профессии</h2>
-        <div class="diagramm" style="height:200px;"> <div class="container-fluid">Типо диаграмма</div> </div>
-        <div class="all_stat"><a>Весь список</a></div>
-    </section>
 
     <section id="advantages" class="container-fluid">
     <div class="head_row">
@@ -48,6 +42,13 @@
             <p class="right_text">Lorem ipsum dolor sit.</p>
             <img src="{{ asset('images/business.png') }}" alt="">
         </div>
+    </section>
+
+    <section id="stats">
+        <h2 class="header">Наиболее
+        востребованные профессии</h2>
+        <div class="diagramm"> <div class="container-fluid"><div id="chart_div"></div></div> </div>
+        <div class="all_stat"><a>Весь список</a></div>
     </section>
 </div>
 @endsection
