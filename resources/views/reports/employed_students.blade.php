@@ -5,17 +5,17 @@
 @endsection
 
 @section('content')
-    <div class="card card-primary card-outline">
-        <div class="card-header">
+<section id="employeers">
+    <div class="card text-white" style="background-color: #333; margin-top: 70px;">
+        <div class="card-header text-center">
             <h1>{{ __('reports.Employed students') }}</h1>
             <form id="filter-form" method="get">
                 <input id="from" name="from" type="text" placeholder="{{ __('reports.From') }}" @if($params['from'] ?? null) value="{{$params['from']}}" @endif/>
                 <input id="to" name="to" type="text" placeholder="{{ __('reports.To') }}" @if($params['to'] ?? null) value="{{$params['to']}}" @endif/>
-                <button type="submit" class="btn btn-primary">{{ __('reports.Filter') }}</button>
+                <button type="submit" class="btn btn-light">{{ __('reports.Filter') }}</button>
             </form>
         </div>
         <div class="card-body">
-
             <table id="data-table" class="table table-striped">
                 <thead>
                 <tr>
@@ -45,4 +45,5 @@
             initDataTable('#data-table', {order: [[4, 'desc']]})
         });
     </script>
+</section>
 @endsection
