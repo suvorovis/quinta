@@ -10,6 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- Scripts -->
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,29 +19,30 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div id="app" class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand" style="border: none">
         <!-- Left navbar links -->
         <ul class="navbar-nav nav_button">
-            <li class="nav-item">
+            <li class="nav-item sidebar_button">
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
         </ul>
+        <a class="navbar-brand logo" href="/public/"><img src="{{ asset('images/logo.png') }}" alt=""></a>
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('passwords.Login') }}</a>
+                    <a class="link login" href="{{ route('login') }}">{{ __('passwords.Login') }}</a>
                 </li>
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('passwords.Register') }}</a>
+                        <a class="link register" href="{{ route('register') }}">{{ __('passwords.Register') }}</a>
                     </li>
                 @endif
             @else
             <!-- Authentication Links -->
             <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarDropdown" class="username dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
 
@@ -57,7 +59,7 @@
             </li>
             @endguest
             <li class="nav-item dropdown">
-                <a id="navbarLocaleDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarLocaleDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ strtoupper(app()->getLocale()) }} <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-sm-right" aria-labelledby="navbarLocaleDropdown">
@@ -70,17 +72,12 @@
 
     <!-- Main Sidebar Container -->
     @if (Auth::check())
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar elevation-4">
 
         <!-- Sidebar -->
         <div class="sidebar">
 
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <a href="{{ url('/') }}">
-                        <img src="{{ asset('images/logo.png') }}" class="img-circle elevation-2" alt="{{ config('app.name', 'Laravel') }}" style="opacity: .8">
-                    </a>
-                </div>
                 <div class="info">
                     <a href="{{ url('/') }}">
                         <span class="brand-text">{{ config('app.name', 'Laravel') }}</span>
@@ -114,18 +111,6 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-12">
-                        <h1 class="m-0 text-dark">@yield('title')</h1>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
-
         <section class="content">
             @yield('content')
         </section>
