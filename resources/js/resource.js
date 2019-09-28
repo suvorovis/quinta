@@ -25,3 +25,9 @@ function destroy(id, url) {
     $('#modal-delete-form').attr('action', url);
     $('#modal-delete').modal('show');
 }
+
+function create(url) {
+    $('#modal-add-form')[0].reset();
+    $('#modal-add-form').attr('action', url);
+    $('#modal-add').modal('show');
+}

@@ -49,9 +49,9 @@ class StudentController extends Controller
         if (!auth()->user()->hasAnyRole(['admin', 'institute', 'employer'])) {
             return redirect('/');
         }
-        Student::create([
+        Student::create(
             $request->all()
-        ]);
+        );
 
         return redirect(route('students.index'));
     }

@@ -1,4 +1,4 @@
-@extends('modals.edit')
+@extends('modals.create')
 
 @section('modal-add-content')
     <div class="form-group row">
