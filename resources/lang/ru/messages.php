@@ -17,4 +17,8 @@ return [
     'Edit element' => 'Редактирование элемента',
     'id' => '№',
     'Students' => 'Студенты',
+    'Are you sure?' => 'Вы уверены?',
+    'Delete' => 'Удалить',
+    'Delete element' => 'Удаление элемента',
+
 ];

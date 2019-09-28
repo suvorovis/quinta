@@ -30,6 +30,9 @@
                             <button class="btn btn-block btn-primary" type="button" onclick="edit({{ $row['id'] }}, '{{ route('students.edit', config('params.id')) }}');">
                                 {{ __('messages.Edit') }}
                             </button>
+                            <button class="btn btn-block btn-danger" type="button" onclick="destroy({{ $row['id'] }}, '{{ route('students.destroy', config('params.id')) }}');">
+                                {{ __('messages.Delete') }}
+                            </button>
                         </td>
                     </tr>
                 @endforeach
@@ -39,6 +42,7 @@
     </div>
 
     @include('students.modal_edit')
+    @include('modals.destroy')
 
     <script type="application/javascript">
         $(function () {

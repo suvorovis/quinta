@@ -19,3 +19,9 @@ function edit(id, url) {
 function update(id, url) {
     $('#modal-edit-form').attr('action', url.replace(param_id, id)).submit();
 }
+
+function destroy(id, url) {
+    url = url.replace(param_id, id);
+    $('#modal-delete-form').attr('action', url);
+    $('#modal-delete').modal('show');
+}
