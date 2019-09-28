@@ -19,13 +19,14 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div id="app" class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand">
+    <nav class="main-header navbar navbar-expand" style="border: none">
         <!-- Left navbar links -->
         <ul class="navbar-nav nav_button">
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
         </ul>
+        <a class="navbar-brand logo" href="/public/"><img src="{{ asset('images/logo.png') }}" alt=""></a>
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
@@ -71,17 +72,12 @@
 
     <!-- Main Sidebar Container -->
     @if (Auth::check())
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar elevation-4">
 
         <!-- Sidebar -->
         <div class="sidebar">
 
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <a href="{{ url('/') }}">
-                        <img src="{{ asset('images/logo.png') }}" class="img-circle elevation-2" alt="{{ config('app.name', 'Laravel') }}" style="opacity: .8">
-                    </a>
-                </div>
                 <div class="info">
                     <a href="{{ url('/') }}">
                         <span class="brand-text">{{ config('app.name', 'Laravel') }}</span>
@@ -113,18 +109,6 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-12">
-                        <h1 class="m-0 text-dark">@yield('title')</h1>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
-
         <section class="content">
             @yield('content')
         </section>
