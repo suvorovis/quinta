@@ -3,6 +3,12 @@
         initDataTable('table.data-table');
         initSimpleSelect2('select');
         initSelect2('select.select2.form-control');
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     });
 
     function initDataTable(selector, options = {}) {

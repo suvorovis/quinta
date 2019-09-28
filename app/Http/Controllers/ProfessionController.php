@@ -2,20 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Test;
+use App\Profession;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
-class TestController extends Controller
+class ProfessionController extends Controller
 {
-    /**
-     * TestController constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -23,9 +14,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        return view('tests.index', [
-            'rows' => Test::all()
-        ]);
+        //
     }
 
     /**
@@ -52,10 +41,10 @@ class TestController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Test  $test
+     * @param  \App\Profession  $profession
      * @return \Illuminate\Http\Response
      */
-    public function show(Test $test)
+    public function show(Profession $profession)
     {
         //
     }
@@ -63,10 +52,10 @@ class TestController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Test  $test
+     * @param  \App\Profession  $profession
      * @return \Illuminate\Http\Response
      */
-    public function edit(Test $test)
+    public function edit(Profession $profession)
     {
         //
     }
@@ -75,10 +64,10 @@ class TestController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Test  $test
+     * @param  \App\Profession  $profession
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Test $test)
+    public function update(Request $request, Profession $profession)
     {
         //
     }
@@ -86,10 +75,10 @@ class TestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Test  $test
+     * @param  \App\Profession  $profession
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Test $test)
+    public function destroy(Profession $profession)
     {
         //
     }

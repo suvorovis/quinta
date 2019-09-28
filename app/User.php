@@ -42,6 +42,21 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
+    public function institute()
+    {
+        return $this->hasOne(Institute::class);
+    }
+
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
+
+    public function employer()
+    {
+        return $this->hasOne(Employer::class);
+    }
+
     /**
      * @param string|array $roles
      * @return bool
