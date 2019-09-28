@@ -22,5 +22,6 @@ return [
     'Delete element' => 'Delete element',
     'Add' => 'Add',
     'Add element' => 'Add element',
+    'Reports' => 'Reports'
 
 ];

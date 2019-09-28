@@ -63,6 +63,7 @@
             </li>
         </ul>
         <a class="navbar-brand logo" href="/"><img src="{{ asset('images/logo.png') }}" alt=""></a>
+        <a class="link login" href="{{ route('reports.employed') }}">{{ __('messages.Reports') }}</a>
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">

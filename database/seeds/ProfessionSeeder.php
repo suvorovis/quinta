@@ -11,9 +11,9 @@ class ProfessionSeeder extends Seeder
      */
     public function run()
     {
-        $direction_it = \App\Direction::where('name', 'IT')->first();
-        $direction_finance = \App\Direction::where('name', 'Finance')->first();
-        $direction_accounting = \App\Direction::where('name', 'Accounting')->first();
+        $direction_it = \App\Direction::where('name', 'IT')->first()['id'];
+        $direction_finance = \App\Direction::where('name', 'Finance')->first()['id'];
+        $direction_accounting = \App\Direction::where('name', 'Accounting')->first()['id'];
 
         $profession = new \App\Profession();
         $profession->name = 'Backend Developer';
