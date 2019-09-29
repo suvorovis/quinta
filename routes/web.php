@@ -27,3 +27,6 @@ Auth::routes();
 Route::resource('students', 'StudentController');
 Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 Route::get('reports/employed', 'ReportController@employedStudents')->name('reports.employed');
+
+Route::resource('employments', 'EmploymentController');
+Route::resource('education', 'EducationController');
