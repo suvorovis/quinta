@@ -20,28 +20,28 @@ class UserTableSeeder extends Seeder
         $role_admin     = Role::where('name', 'admin')->first();
 
         $employee = new User();
-        $employee->name = 'Institute Name';
+        $employee->name = 'PskovGU';
         $employee->email = 'institute@example.com';
         $employee->password = Hash::make('secret');
         $employee->save();
         $employee->roles()->attach($role_institute);
 
         $manager = new User();
-        $manager->name = 'Employer Name';
+        $manager->name = 'Formoza, LLC';
         $manager->email = 'employer@example.com';
         $manager->password = Hash::make('secret');
         $manager->save();
         $manager->roles()->attach($role_employer);
 
         $manager = new User();
-        $manager->name = 'Student Name';
+        $manager->name = 'Ivan Petrovich Ivanov';
         $manager->email = 'student@example.com';
         $manager->password = Hash::make('secret');
         $manager->save();
         $manager->roles()->attach($role_student);
 
         $manager = new User();
-        $manager->name = 'Admin Name';
+        $manager->name = 'Admin';
         $manager->email = 'admin@example.com';
         $manager->password = Hash::make('secret');
         $manager->save();
