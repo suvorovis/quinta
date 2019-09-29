@@ -7,11 +7,9 @@
 
       var data = google.visualization.arrayToDataTable([
         ['Direction', 'Численность трудоустроенных', {type: 'string', role: 'annotation'}],
-        ['IT технологии', 8175000, '8.1M'],
-        ['Менеджмент', 3792000, '3.8M'],
-        ['Финансовое дело', 2695000, '2.7M'],
-        ['Торговля', 2099000, '2.1M'],
-        ['Транспорт и логистика', 1526000, '1.5M']
+        @foreach($directions as $direction)
+            ['{{ $direction['name'] }}', {{ $direction['count'] }}, '{{ $direction['count'] }}'],
+        @endforeach
       ]);
 
       var options = {

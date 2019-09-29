@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 
 Route::get('locale/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'ru'])) {
@@ -27,6 +24,7 @@ Auth::routes();
 Route::resource('students', 'StudentController');
 Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 Route::get('reports/employed', 'ReportController@employedStudents')->name('reports.employed');
+Route::get('/', 'ReportController@getDirections')->name('home.directions');
 
 Route::resource('employments', 'EmploymentController');
 Route::resource('education', 'EducationController');

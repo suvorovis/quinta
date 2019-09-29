@@ -18,7 +18,8 @@ class DashboardController extends Controller
 
         $params['from'] = $params['from'] ?? '0000-00-00';
         $params['to'] = $params['to'] ?? '9999-12-31';
-
+    
+        
         $students = "
         SELECT e.student_id, s.direction_id, d.name as direction
         FROM education e 
@@ -46,8 +47,32 @@ class DashboardController extends Controller
             return (array)$row;
         }, $rows);
 
+        $all_students = "
+        SELECT e.student_id, s.direction_id, d.name as direction
+        FROM education e JOIN specialities s ON e.speciality_id = s.id JOIN directions d ON s.direction_id = d.id";
+
+        $all_directions = "
+        SELECT s.direction as name, COUNT(s.student_id) as count FROM ({$all_students}) as s GROUP BY s.direction";
+
+        $directions = DB::select( DB::raw($all_directions) );
+
+        $directions = array_map(function ($row) {
+            return (array)$row;
+        }, $directions);
+
+        $all_profs = "
+        SELECT p.name as name, COUNT(e.student_id) as count FROM employments as e JOIN professions as p ON e.profession_id = p.id GROUP BY p.name";
+
+        $profs = DB::select( DB::raw($all_profs) );
+
+        $profs = array_map(function ($row) {
+            return (array)$row;
+        }, $profs);
+
         return view('dashboard.index', [
             'rows' => $rows,
+            'directions' => $directions,
+            'profs' => $profs,
             'params' => $reportParams,
         ]);
     }

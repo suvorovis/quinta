@@ -3,9 +3,9 @@
 @section('title')
     {{ __('messages.Dashboard') }}
 @endsection
-
 @section('content')
 <section id="stats">
+
 <h2 class="header">Аналитика</h2>
 <div class="diagrams">
     <h3>Количество работающих по профессиям</h3>
