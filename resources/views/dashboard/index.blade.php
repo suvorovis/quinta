@@ -3,80 +3,56 @@
 @section('title')
     {{ __('messages.Dashboard') }}
 @endsection
-
 @section('content')
 <section id="stats">
+
 <h2 class="header">Аналитика</h2>
 <div class="diagrams">
     <h3>Количество работающих по профессиям</h3>
     <div id="chart_div" style="padding-left: 100px;"></div>
     <h3>Востребованность направлений</h3>
     <div id="chart_div2" style="padding-left: 100px; margin-top: 50px"></div>
-    <h3>Количество работающих по профессии</h3>
+    <h3>Анализ трудоустройства студентов</h3>
 </div>
-<div id="table" style="color: black; background-color: white; margin:0 auto ; margin-top: 50px; max-width: 1500px; padding: 20px">
-    <table id="data-table" class="table table-striped">
-        <thead>
-        <tr>
-            <th>Направление</th>
-            <th>Профессия</th>
-            <th>Количество выпускников</th>
-            <th>Количество трудоустроенных</th>
-            <th>Эффективность</th>
-        </tr>
-        </thead>
-        <tbody>
+<div class="card text-white" style="background-color: #333;">
+    <div class="card-header text-center">
+        <form id="filter-form" method="get">
+            <input id="from" name="from" type="text" placeholder="{{ __('reports.From') }}" @if($params['from'] ?? null) value="{{$params['from']}}" @endif/>
+            <input id="to" name="to" type="text" placeholder="{{ __('reports.To') }}" @if($params['to'] ?? null) value="{{$params['to']}}" @endif/>
+            <button type="submit" class="btn btn-light">{{ __('reports.Filter') }}</button>
+        </form>
+    </div>
+    <div class="card-body">
+        <table id="data-table" class="table table-striped">
+            <thead>
             <tr>
-                <td>IT технологии</td>
-                <td>Back-end разработчик</td>
-                <td>10000</td>
-                <td>2000</td>
-                <td>20%</td>
+                <th>{{ __('reports.direction') }}</th>
+                <th>{{ __('reports.profession') }}</th>
+                <th class="text-center">{{ __('reports.educated') }}</th>
+                <th class="text-center">{{ __('reports.employed') }}</th>
+                <th class="text-center">{{ __('reports.rate') }}</th>
             </tr>
-            <tr>
-                <td>IT технологии</td>
-                <td>Front-end разработчик</td>
-                <td>10000</td>
-                <td>3000</td>
-                <td>30%</td>
-            </tr>
-            <tr>
-                <td>IT технологии</td>
-                <td>Machine learning engineer</td>
-                <td>10000</td>
-                <td>1000</td>
-                <td>10%</td>
-            </tr>
-            <tr>
-                <td>Дизайн</td>
-                <td>Веб-дизайнер</td>
-                <td>5000</td>
-                <td>1000</td>
-                <td>20%</td>
-            </tr>
-            <tr>
-                <td>Дизайн</td>
-                <td>Графический дизайн</td>
-                <td>5000</td>
-                <td>3000</td>
-                <td>60%</td>
-            </tr>
-            <tr>
-                <td>Финансовое дело</td>
-                <td>Бухгалтер</td>
-                <td>8000</td>
-                <td>2000</td>
-                <td>25%</td>
-            </tr>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach($rows as $row)
+                <tr>
+                    <td>{{ $row['direction'] }}</td>
+                    <td>{{ $row['profession'] }}</td>
+                    <td class="text-center">{{ $row['educated'] }}</td>
+                    <td class="text-center">{{ $row['employed'] }}</td>
+                    <td class="text-center">{{ $row['rate'] }}%</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
 </section>
 
 <script type="application/javascript">
     $(function () {
-        initDataTable('#data-table', {order: [[0, 'asc']]})
+        initDataTable('#data-table', {order: [[4, 'desc']]})
     });
 </script>
     

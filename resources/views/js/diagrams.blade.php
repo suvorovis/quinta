@@ -1,5 +1,5 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script>
+<script type="text/javascript">
     google.charts.load('current', {packages: ['corechart', 'bar']});
     google.charts.setOnLoadCallback(drawAnnotations);
 
@@ -7,11 +7,9 @@
 
       var data = google.visualization.arrayToDataTable([
         ['Direction', 'Численность трудоустроенных', {type: 'string', role: 'annotation'}],
-        ['Front-end разработчик', 8175000, '8.1M'],
-        ['Back-end разработчик', 3792000, '3.8M'],
-        ['Веб-дизайнер', 2695000, '2.7M'],
-        ['SEO маркетолог', 2099000, '2.1M'],
-        ['Machine learning engineer', 1526000, '1.5M']
+        @foreach($directions as $direction)
+            ['{{ $direction['name'] }}', {{ $direction['count'] }}, '{{ $direction['count'] }}'],
+        @endforeach
       ]);
 
       var options = {
@@ -74,12 +72,11 @@
     function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
+            
             ['Direction', 'Процент работников'],
-            ['IT технологии', 40],
-            ['Менеджмент', 25],
-            ['Финансовое дело',20],
-            ['Торговля', 10],
-            ['Транспорт и логистика',5]
+            @foreach($profs as $prof)
+                ['{{ $prof['name'] }}', {{ $prof['count'] }}],
+            @endforeach
         ]);
 
     var options = {

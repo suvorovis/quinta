@@ -7,6 +7,26 @@ use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
+    public function getDirections(Request $request)
+    {
+        $all_students = "
+        SELECT e.student_id, s.direction_id, d.name as direction
+        FROM education e JOIN specialities s ON e.speciality_id = s.id JOIN directions d ON s.direction_id = d.id";
+
+        $all_directions = "
+        SELECT s.direction as name, COUNT(s.student_id) as count FROM ({$all_students}) as s GROUP BY s.direction";
+
+        $directions = DB::select( DB::raw($all_directions) );
+
+        $directions = array_map(function ($row) {
+            return (array)$row;
+        }, $directions);
+
+        return view('home', [
+            'directions' => $directions,
+        ]);
+    }
+
     public function employedStudents(Request $request)
     {
         $params = $this->validate($request, [
