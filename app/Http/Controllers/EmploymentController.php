@@ -32,7 +32,10 @@ class EmploymentController extends Controller
             $row['profession'] = Profession::where(['id' => $row['profession_id']])->first()['name'];
         }
 
-        return view('employments.index', ['rows' => $rows]);
+        return view('employments.index', [
+            'rows' => $rows,
+            'professions' => Profession::all()
+        ]);
     }
 
     /**
@@ -60,13 +63,11 @@ class EmploymentController extends Controller
             return redirect('/');
         }
         $params = $request->all();
-        dd($params);
-        $params['profession'] = Profession::where(['id' => $params['profession_id']])->first()['name'];
-        $params['student_id'] = auth()->user()->student()['id'];
-//        $student = Student::where(['user_id' => auth()->user()->id])->first()['id'];
+
+        $params['student_id'] = Student::where(['user_id' => auth()->user()->id])->first()['id'];
 
         Employment::create(
-
+            $params
         );
 
         return redirect(route('employments.index'));

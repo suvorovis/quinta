@@ -7,10 +7,20 @@
             <input class="form-control" id="organization" name="organization" placeholder="{{ __('employments.organization') }}" type="text">
         </div>
     </div>
+{{--    <div class="form-group row">--}}
+{{--        <label for="profession_id" class="col-sm-4 control-label">{{ __('employments.profession') }}</label>--}}
+{{--        <div class="col-sm-8">--}}
+{{--            <input class="form-control" id="profession_id" name="profession_id" placeholder="{{ __('employments.profession') }}" type="text">--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <div class="form-group row">
         <label for="profession_id" class="col-sm-4 control-label">{{ __('employments.profession') }}</label>
         <div class="col-sm-8">
-            <input class="form-control" id="profession_id" name="profession_id" placeholder="{{ __('employments.profession') }}" type="text">
+            <select class="form-control select2" id="profession_id" name="profession_id">
+                @foreach($professions as $profession)
+                    <option value="{{ $profession['id'] }}">{{ $profession['name'] }}</option>
+                @endforeach
+            </select>
         </div>
     </div>
     <div class="form-group row">
