@@ -98,6 +98,14 @@
                         </a>
                     </li>
                     @endif
+                    @if(auth()->user()->hasAnyRole(['student']))
+                        <li class="nav-item">
+                            <a href="{{ route('employments.index') }}" class="nav-link{{ Request::segment(1) === 'employments' ? ' active' : '' }}">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>{{ __('messages.Employments') }}</p>
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
