@@ -22,6 +22,7 @@ return [
     'Delete element' => 'Удаление элемента',
     'Add' => 'Добавить',
     'Add element' => 'Добавление элемента',
-    'Reports' => 'Отчеты'
+    'Reports' => 'Отчеты',
+    'Employments' => 'Работа'
 
 ];
