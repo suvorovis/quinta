@@ -23,6 +23,7 @@ return [
     'Add' => 'Add',
     'Add element' => 'Add element',
     'Reports' => 'Reports',
-    'Employments' => 'Employments'
+    'Employments' => 'Employments',
+    'Education' => 'Education',
 
 ];

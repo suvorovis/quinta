@@ -101,8 +101,14 @@
                     @if(auth()->user()->hasAnyRole(['student']))
                         <li class="nav-item">
                             <a href="{{ route('employments.index') }}" class="nav-link{{ Request::segment(1) === 'employments' ? ' active' : '' }}">
-                                <i class="nav-icon fas fa-user"></i>
+                                <i class="nav-icon fas fa-address-card"></i>
                                 <p>{{ __('messages.Employments') }}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('education.index') }}" class="nav-link{{ Request::segment(1) === 'education' ? ' active' : '' }}">
+                                <i class="nav-icon fas fa-graduation-cap"></i>
+                                <p>{{ __('messages.Education') }}</p>
                             </a>
                         </li>
                     @endif
